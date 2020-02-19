@@ -1,0 +1,33 @@
+sudo apt update
+sudo apt upgrade
+
+sudo mount devsr0 - неуспешно, чтавила через интерфейс
+
+sudo apt-get install openssh-server
+ssh-keygen
+cat /home/john/key.pub
+ssh-add /home/john/key
+
+sudo systemctl stop ufw
+sudo ufw disable
+sudo ufw allow 22
+sudo systemctl start ufw
+sudo systemctl restart networking
+ip a
+
+history
+
+login as: john
+john@192.168.56.101's password:
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 5.3.0-40-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+0 packages can be updated.
+0 updates are security updates.
