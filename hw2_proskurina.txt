@@ -1,0 +1,39 @@
+
+ ls /proc
+ ls /home
+ ls /etc
+ ls ./logcheck
+ ls ./ignore.d.server
+ ls ./gpg-agent
+ ls ./etc/ppp
+ ls ./chap-secrets
+ cd /home/john/
+
+ mkdir /home/john/geek-brains/linux
+ cd /home/john/geek-brains/linux
+ touch file1 
+ touch file2 
+ echo 111 > file1
+ cat file1
+ echo 222 > file2 
+ cat file1 file2 > sum_file
+ cat sum_file
+
+ mv sum_file new_sum_file
+ cat new_sum_file
+ mkdir ./new_dir
+ ls
+ mv file1 ./new_dir
+ mv file2 ./new_dir
+ mv new_sum_file ./new_dir
+ rm -r ./new_dir
+ ls
+
+ cd /home/john
+ ls -l | wc
+
+cat |ls /etc/ 2>err - выводит кучу файлов, зависает
+
+ps ax | grep terminal
+kill -9 1756 - оба терминала рип
+
