@@ -1,0 +1,122 @@
+
+john@john-VirtualBox:~$ cat > file1
+1
+2
+3
+4^C
+john@john-VirtualBox:~$ cp file1 file2
+john@john-VirtualBox:~$ ln file1 file4
+john@john-VirtualBox:~$ cat file4
+1
+2
+3
+john@john-VirtualBox:~$ ln -s file1 file3
+john@john-VirtualBox:~$ cat file3
+1
+2
+3
+john@john-VirtualBox:~$ ls -ila
+total 152
+552332 -rw-rw-r--  1 john john    0 фев 20 00:23 -
+524492 drwxr-xr-x 18 john john 4096 мар  1 09:00 .
+393217 drwxr-xr-x  3 root root 4096 фев 19 22:21 ..
+552333 -rw-rw-r--  1 john john    0 фев 20 00:23 0
+552338 -rw-rw-r--  1 john john    0 фев 20 00:23 applicable
+524681 -rw-------  1 john john 2817 фев 27 00:49 .bash_history
+524494 -rw-r--r--  1 john john  220 фев 19 22:21 .bash_logout
+544645 -rw-r--r--  1 john john 3771 фев 19 22:21 .bashrc
+525732 drwx------ 13 john john 4096 фев 20 00:23 .cache
+526693 drwx------ 14 john john 4096 фев 23 20:59 .config
+530238 drwxr-xr-x  2 john john 4096 фев 19 22:37 Desktop
+530544 drwxr-xr-x  2 john john 4096 фев 19 22:37 Documents
+530500 drwxr-xr-x  2 john john 4096 фев 19 22:37 Downloads
+530557 -rw-r--r--  1 john john    0 фев 27 00:34 err
+544635 -rw-r--r--  1 john john 8980 фев 19 22:21 examples.desktop
+552376 -rw-r--r--  2 john john    6 мар  1 08:54 file1
+552368 -rw-r--r--  1 john john    6 мар  1 08:58 file2
+552375 -rw-r--r--  1 john john    8 мар  1 08:53 file_2_hw_4.txt
+552379 lrwxrwxrwx  1 john john    5 мар  1 09:00 file3 -> file1
+552376 -rw-r--r--  2 john john    6 мар  1 08:54 file4
+552373 -rw-r--r--  1 john john    9 мар  1 08:52 file_hw_4.txt
+552266 drwxr-xr-x  3 john john 4096 фев 27 00:03 geek-brains
+525727 drwx------  3 john john 4096 фев 23 15:11 .gnupg
+526299 -rw-------  1 john john 1404 фев 19 23:41 .ICEauthority
+552336 -rw-rw-r--  1 john john    0 фев 20 00:23 individual
+525833 -rw-------  1 john john 1675 фев 19 23:30 key
+552271 -rw-r--r--  1 john john  402 фев 19 23:30 key.pub
+525884 drwx------  3 john john 4096 фев 19 22:36 .local
+552280 -rw-r--r--  1 john john   79 фев 19 23:34 .~lock.key.pub#
+552269 drwxr-xr-x  2 root root 4096 фев 19 23:20 media
+530553 drwx------  5 john john 4096 фев 19 22:45 .mozilla
+530547 drwxr-xr-x  2 john john 4096 фев 19 22:37 Music
+530548 drwxr-xr-x  2 john john 4096 фев 19 22:37 Pictures
+544651 -rw-r--r--  1 john john  807 фев 19 22:21 .profile
+530502 drwxr-xr-x  2 john john 4096 фев 19 22:37 Public
+552345 drwx------  2 john john 4096 фев 23 15:11 .ssh
+534082 -rw-r--r--  1 john john    0 фев 19 22:43 .sudo_as_admin_successful
+530501 drwxr-xr-x  2 john john 4096 фев 19 22:37 Templates
+552335 -rw-rw-r--  1 john john    0 фев 20 00:23 the
+552334 -rw-rw-r--  1 john john    0 фев 20 00:23 The
+552337 -rw-rw-r--  1 john john    0 фев 20 00:23 Ubuntu
+526795 -rw-r-----  1 john john    5 фев 19 23:41 .vboxclient-clipboard.pid
+552300 -rw-r-----  1 john john    5 фев 19 23:41 .vboxclient-display.pid
+552305 -rw-r-----  1 john john    5 фев 19 23:41 .vboxclient-draganddrop.pid
+552304 -rw-r-----  1 john john    5 фев 19 23:41 .vboxclient-seamless.pid
+530549 drwxr-xr-x  2 john john 4096 фев 19 22:37 Videos
+john@john-VirtualBox:~$ rm file1
+john@john-VirtualBox:~$ cat file2
+1
+2
+3
+john@john-VirtualBox:~$ cat file3
+cat: file3: No such file or directory
+john@john-VirtualBox:~$ cat file4
+1
+2
+3
+
+
+
+john@john-VirtualBox:~$ mv file2 second_file
+john@john-VirtualBox:~$ mv file3 third_file
+john@john-VirtualBox:~$ mv file4 forth_file
+john@john-VirtualBox:~$ ln -s forth_file fifth_file
+john@john-VirtualBox:~$ cat fifth_file
+1
+2
+3
+john@john-VirtualBox:~$ mv second_file third_file forth_file fifth_file ./media
+mv: cannot move 'second_file' to './media/second_file': Permission denied
+mv: cannot move 'third_file' to './media/third_file': Permission denied
+mv: cannot move 'forth_file' to './media/forth_file': Permission denied
+mv: cannot move 'fifth_file' to './media/fifth_file': Permission denied
+john@john-VirtualBox:~$ sudo mv second_file third_file forth_file fifth_file ./media
+[sudo] password for john: 
+john@john-VirtualBox:~$ 
+
+john@john-VirtualBox:~$ touch file1
+john@john-VirtualBox:~$ touch file2
+john@john-VirtualBox:~$ chmod u=rw,g=rw,o=r file1
+john@john-VirtualBox:~$ chmod 664 file1
+john@john-VirtualBox:~$ chmod 600 file2
+john@john-VirtualBox:~$ chmod u=rw file2
+
+john@john-VirtualBox:~$ sudo visudo
+# User alias specification
+john    ALL=(ALL:ALL) ALL
+# Cmnd alias specification
+
+john@john-VirtualBox:~$ sudo useradd -G developers -s /bin/bash userdev2
+john@john-VirtualBox:~$ sudo useradd -G developers -s /bin/bash userdev1
+john@john-VirtualBox:~$ sudo mkdir /home/Shared
+john@john-VirtualBox:~$ sudo chmod o-r -R /home/Shared
+john@john-VirtualBox:~$ sudo chmod 766 /home/Shared
+
+
+john@john-VirtualBox:~$ sudo mkdir /home/Shared/Exchange
+john@john-VirtualBox:~$ sudo chmod 755 /home/Shared/Exchange
+
+john@john-VirtualBox:~$ sudo mkdir ./minusx
+john@john-VirtualBox:~$ sudo chmod ugo-x ./minusx
+
+
