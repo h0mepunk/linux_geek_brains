@@ -1,0 +1,30 @@
+1
+#!/bin/bash
+echo dlya zapuska vvedite imya faila
+read filename
+sed -i '/^$/d' $filename
+cat $filename | tr [:lower:] [:upper:]
+
+
+2
+Mar  4 22:33:19 john-VirtualBox sshd[2428]: Failed password for john from 192.168.56.1 port 64488 ssh2
+Mar  4 22:40:12 john-VirtualBox sshd[2463]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.101  user=john
+Mar  4 22:40:14 john-VirtualBox sshd[2463]: Failed password for john from 192.168.56.101 port 49718 ssh2
+
+#!/bin/bash
+cat /var/log/auth.log | grep ^.*Failed.password.*ssh2
+
+3
+#!/bin/bash
+listOfFiles = $2 $3 $4 $5 $6 $7 $8 $9
+directory = $1
+
+cd dir
+for file in listOfFiles
+do 
+	[cd $file]&&echo more than one directory
+	[ -e $file ]&&echo $file exists
+	[ -e $file ]||touch $file
+	[grep $file .*\.sh ]||$ chmod +x $file
+
+done
